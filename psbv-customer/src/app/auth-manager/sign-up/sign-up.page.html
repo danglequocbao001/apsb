@@ -1,0 +1,69 @@
+<ion-header>
+  <ion-icon name="chevron-back-outline" class="icon-back" routerLink="/auth/login"></ion-icon>
+  <ion-label class="title">Sign up</ion-label>
+</ion-header>
+<ion-content class="ion-padding">
+  <form [formGroup]="formSignup" (ngSubmit)="onSignUp()">
+    
+    <ion-label class="input-title">Name</ion-label>
+    <input class="input " type="text" formControlName="name">
+    <div class="error-messages">
+      <ng-container *ngFor="let error of error_messages.name">
+        <div class = "error-message" *ngIf="formSignup.get('name').hasError(error.type) && (formSignup.get('name').dirty || formSignup.get('name').touched)">
+          {{ error.message }}
+        </div>
+      </ng-container>
+    </div>
+    <ion-label class="input-title">Email</ion-label>
+    <input inputmode="email" class="input" type="email" formControlName="email">
+    <div class="error-messages">
+      <ng-container *ngFor="let error of error_messages.email">
+        <div class = "error-message" *ngIf="formSignup.get('email').hasError(error.type) && (formSignup.get('email').dirty || formSignup.get('email').touched)">
+          {{ error.message }}
+        </div>
+      </ng-container>
+    </div>
+    <ion-label class="input-title">Password</ion-label>
+    <br>
+    <span class="input-description">Use 8 or more characterswith a mix of letters, numbers, symbols.</span>
+    <ion-item-group class="group-password">
+      <input type = "{{ type2 }}" class="input" formControlName="password">
+      <button *ngIf="!showPass2" type = "button" (click)="showPassword2()" class="btn-change-type">
+        <ion-icon name="eye-outline" class="ion-eye"></ion-icon>
+      </button>
+      <button *ngIf="showPass2" type="button" (click)="showPassword2()" class="btn-change-type ">
+        <ion-icon name="eye-off-outline" class="icon-eye-throught"></ion-icon>
+      </button>
+    </ion-item-group>
+      <div class="error-messages">
+        <ng-container *ngFor="let error of error_messages.password">
+          <div class = "error-message" *ngIf="formSignup.get('password').hasError(error.type) && (formSignup.get('password').dirty || formSignup.get('password').touched)">
+            {{ error.message }}
+          </div>
+        </ng-container>
+      </div>
+    <ion-label class="input-title">Confirm Password</ion-label>
+    <input type="password" class="input" formControlName="confirmpassword">
+    <div class="error-messages">
+      <ng-container *ngFor="let error of error_messages.confirmpassword">
+        <div class = "error-message" *ngIf="formSignup.get('confirmpassword').hasError(error.type) && (formSignup.get('confirmpassword').dirty || formSignup.get('confirmpassword').touched)">
+          {{ error.message }}
+        </div>
+      </ng-container>
+    </div>
+    <pre *ngIf ="formSignup.errors" class="not-match not-match-pass">
+      
+      {{formSignup.errors.error |json}}
+     </pre>
+  
+    <ion-button class="button-sign-up" type="submit" [disabled] ="!formSignup.valid || showSpinner">
+      <ion-spinner *ngIf="showSpinner"></ion-spinner>Sign up My Account</ion-button>
+</form>
+  <ion-label class="have-account">You already have an account?</ion-label>
+  <br>
+  <ion-label class="goto-sign-in" (click)="gotoLogin()">
+  
+      <u>Sign in now</u>
+
+  </ion-label>
+</ion-content>

@@ -1,0 +1,122 @@
+ion-content{
+    --overflow:hidden;
+}
+.header-md::after {
+  height: 0;
+}
+.icon-back{
+    font-size: 26px;
+    color: #6D6D6D;
+  }
+  .icon-more{
+    height: 20px;
+    display: flex;
+    float: right;
+    margin-top: 0px;
+    position: relative;
+  
+    ion-img{
+      width: 22px;
+    }
+    .more-content{
+      position: absolute;
+      padding: 2px;
+      border-radius: 4px;
+      top: calc(100% + 5px);
+      right: 0;
+      background-color: #c9c9c9;
+  
+      &::before{
+        content: " ";
+        position: absolute;
+        border-width: 8px 6px;
+        border-style: solid;
+        border-color: transparent transparent #c9c9c9 transparent;
+        top: -16px;
+        right: 5px;
+      }
+     
+      span{
+        display: block;
+        text-align: center;
+        padding: 4px 11px;
+        border-radius: 4px;
+      }
+      span:active{
+        background-color: #fff;
+      }
+    }
+  }
+  .header__icon{
+        width: 80px;
+        height: 80px;
+        color: var(--main-color);
+        margin-left: 40%;
+        margin-right: auto;
+        border-radius: 50%;
+        border: 1px solid var(--main-color);
+        position: relative;
+        .header__iperson {
+            position: absolute;
+            left: 18px;
+            font-size: 43px;
+            top: 14px;
+        }
+        .icon-premium{
+            width: 32px;
+            height: auto;
+            margin-left: 53px;
+            margin-top: 3px;
+        }
+  }
+  .user-name{
+    text-align: center;
+    color: #3F3F3F;
+    display: flex;
+    flex-direction: column;
+    &__main{
+        font-size: 16px;
+        font-weight: 700;
+    }
+    &__sub{
+        font-size: 14px;
+        font-weight: normal;
+        margin-top: 6px;
+      }
+  }
+  .btn-logout {
+    width: 90%;
+    position: absolute;
+    left: 5%;
+    border-radius: 4px;
+    --background: #CE091C;
+    color: white;
+    margin-top: 5rem;
+    height: 40px;
+    margin-inline-start: 0;
+    margin-inline-end: 0;
+    --background-activated:#CE091C;
+  }
+.policy-title{
+    font-weight: 700;
+    margin-top: 55px;
+    margin-bottom: 20px;
+    margin-left: 12%;
+    text-align: left;
+    display: block;
+    font-size: 15px;
+}
+.policy-detail{
+    margin-top: 6px;
+    text-align: left;
+    margin-left: 12%;
+    width: 70%;
+    display: block;
+    font-size: 12px;
+    text-align: justify;
+}
+@media(max-width: 321px){
+    .btn-logout{
+        margin-top: 3rem;
+    }
+}

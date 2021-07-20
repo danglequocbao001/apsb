@@ -1,0 +1,32 @@
+<ion-content class="ion-padding">
+  <ion-item-group class="header__wrapper">
+    <ion-avatar class="header__icon">
+      <ion-icon name="person" class="header__iperson"></ion-icon>
+    </ion-avatar>
+    <ion-label class="header__label">WELCOME BACK</ion-label>
+  </ion-item-group>
+  <form [formGroup]="profileForm">
+    <ion-item-group class="content__wrapper-input">
+      <input type="text" class="inputname inputname__noborder" formControlName="email" required placeholder="Email">
+    </ion-item-group>
+    <ion-item-group class="content__wrapper-input">
+      <input type="{{type2}}" class="inputname inputname__noborder" formControlName="password" required
+        placeholder="Password">
+      <button *ngIf="!showPass2" type="button" (click)="showPassword2()" class="btn-change-type">
+        <ion-icon name="eye-outline" class="ion-eye"></ion-icon>
+      </button>
+      <button *ngIf="showPass2" type="button" (click)="showPassword2()" class="btn-change-type ">
+        <ion-icon name="eye-off-outline" class="icon-eye-throught"></ion-icon>
+      </button>
+    </ion-item-group>
+    <ion-label class="forgot-password" (click)="resetPass()">Forgot Password?</ion-label>
+    <ion-button class="btn-main" type="button" (click)="onSubmit()" [disabled]="showSpinner">
+      <ion-spinner *ngIf="showSpinner"></ion-spinner>Login My Account
+    </ion-button>
+  </form>
+  <ion-item-group class="question__wrapper">
+    <ion-label class="question">Don't have an account?</ion-label><br />
+    <ion-label class="question" (click)="gotoSignUp()"><u>Sign up now</u>
+    </ion-label>
+  </ion-item-group>
+</ion-content>

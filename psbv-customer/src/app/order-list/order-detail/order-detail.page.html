@@ -1,0 +1,68 @@
+<ion-header>
+  <ion-buttons>
+    <ion-back-button text="" icon="chevron-back-outline"></ion-back-button>
+    <ion-label>Detail order</ion-label>
+  </ion-buttons>
+</ion-header>
+
+<ion-content>
+  <span class="order-code">{{ data.code }}</span>
+  <span class="order-id">{{ data.id }}</span>
+  <span class="no-internet-popup" *ngIf="!isOnline">No internet connection</span>
+
+  <ion-buttons class="status-list" [style.margin-bottom.px]="isActiveBtnShipping ? 190 : 85">
+    <span [style.width.%]="100 / statuses.length" [style.height.px]="activeStatusSize"
+      *ngFor="let status of statuses; let i = index;" class="status-item-wrapper">
+      <span class="status-item" [ngClass]="{'active-item': status.name == activeStatus}"
+        [style.background]="status.color" (click)="changeActiveStatus(status)">
+        <img [src]="status.url" class="status-img" [ngClass]="{'active-icon': status.name == activeStatus}">
+        <ion-buttons class="status-info" *ngIf="status.name == activeStatus">
+          <span class="status-name">{{ status.name | titlecase }}</span>
+          <ion-buttons *ngIf="status.date" class="status-sub-info">
+            <span class="status-date-time">{{ status.time }}</span>
+            <span class="status-date-time">{{ status.date }}</span>
+          </ion-buttons>
+          <ion-buttons *ngIf="status.date === undefined" class="status-sub-info status-date-time">Waiting ...
+          </ion-buttons>
+          <span class="btn-toggle-shipping" *ngIf="status.date && status.name == 'shipping'"
+            (click)="toggleBtnShipping()">
+            <ion-icon name="chevron-down-outline" [ngClass]="{'active-btn-shipping': isActiveBtnShipping}"></ion-icon>
+
+            <ion-buttons class="shipping-status-list" *ngIf="isActiveBtnShipping" [style.width.px]="scrWidth - 3">
+              <ion-buttons *ngFor="let shippingStatus of shipping.statuses; let i = index;" class="shipping-status-item">
+                <span class="line-v" *ngIf="i == 0">
+                  <span class="line-v-top" [style.height.%]="calProgressShipping()"></span>
+                </span>
+                <span class="circle-v" [ngClass]="{'active-circle': shippingStatus.time}"></span>
+
+                <span class="status-name">{{ shippingStatus.name }}</span>
+                <ion-buttons class="status-date-time">{{ shippingStatus.time }} {{ shippingStatus.date }}</ion-buttons>
+              </ion-buttons>
+            </ion-buttons>
+          </span>
+        </ion-buttons>
+      </span>
+      <span class="circle-h" [ngClass]="{'active-circle': status.time}"></span>
+    </span>
+
+    <span class="line-h" *ngIf="loadedData" [style.width]="sanitizer.bypassSecurityTrustStyle(calLineWith())">
+      <span class="line-h-top" *ngIf="loadedData" [style.width.%]="calProgressStatus()"></span>
+    </span>
+  </ion-buttons>
+
+  <ion-card class="cart-item" *ngFor="let item of data.order_details">
+    <ion-buttons class="item-header">
+      <span class="item-amount">{{ item.amount }}</span>
+      <ion-label class="item-name">{{ item.name }}</ion-label>
+    </ion-buttons>
+    <ion-buttons class="ion-justify-content-between">
+      <ion-buttons>
+        <p class="item-price"><ion-label class="product__name-price--unit">$</ion-label>{{ item.amount * item.price | number: '1.2-2' }}</p>
+        <img src="assets/shopping-cart/deliver-black.svg" class="delivery-icon">
+        <span class="delivery-day">1 day</span>
+      </ion-buttons>
+    </ion-buttons>
+  </ion-card>
+
+  <ion-button expand="block" *ngIf="loadedData" class="re-order-btn" (click)="openModalReOrder()">Re-order</ion-button>
+</ion-content>

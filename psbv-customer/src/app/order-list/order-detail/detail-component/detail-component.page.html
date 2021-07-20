@@ -1,0 +1,16 @@
+<ion-header>
+  <ion-buttons>
+    <ion-back-button text="" icon="chevron-back-outline"></ion-back-button>
+    <ion-label>Detail component</ion-label>
+  </ion-buttons>
+</ion-header>
+
+<ion-content>
+  <ion-img src="https://dummyimage.com/350x550.jpg"></ion-img>
+  <ion-row class="ion-nowrap">
+    <ion-col *ngFor="let note of notes; let i = index" size="5">
+      {{ i + 1}}.<br>
+      {{ note }}
+    </ion-col>
+  </ion-row>
+</ion-content>

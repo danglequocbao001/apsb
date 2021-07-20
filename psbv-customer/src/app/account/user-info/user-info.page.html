@@ -1,0 +1,77 @@
+<ion-header class="ion-padding" (click)="clickOveride()">
+  <ion-buttons class="header-wrapper">
+    <ion-back-button style="color: #6D6D6D;" text="" icon="chevron-back-outline"></ion-back-button>
+    <div class="icon-more" (click)="clicked()">
+      <ion-img src="../../assets/more.svg"></ion-img>
+      <div class="more-content" *ngIf="btn == true">
+        <span id="span1" (click)="goToSupport()">Support</span>
+        <span id="span2" (click)="goToAbout()">Contact us</span>
+      </div>
+    </div>
+  </ion-buttons>
+
+</ion-header>
+
+<ion-content (click)="clickOveride()">
+  <ion-avatar class="header__icon">
+    <ion-img class="icon-premium" src="assets/standard.svg"></ion-img>
+    <ion-icon name="person" class="header__iperson"></ion-icon>
+  </ion-avatar>
+
+  <ion-grid>
+    <ion-row class="user-name">
+      <ion-label class="user-name__main">Hi! {{username}}</ion-label>
+      <!-- <ion-label class="user-role">{{role}}</ion-label> -->
+
+      <!-- {{ checkStandardPermission() ? 'Standard' : 'Premium' }} -->
+      <!-- *ngIf="checkStandardPermission()" -->
+      <!-- <ion-label class="upgrade-btn" *ngIf="checkRole()">
+        <span (click)="gotoUpgrade()">Upgrade
+           <ion-icon name="chevron-forward-outline" class="upgrade-icon">
+           </ion-icon>
+        </span>
+      </ion-label> -->
+    </ion-row>
+  </ion-grid>
+
+  <ion-header class="user-info">
+
+    <ion-grid class="user-info__user-name">
+      <ion-row>
+        <ion-col>
+          <ion-label class="user-info__title">
+            Your Email
+          </ion-label>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-label class="user-info__content">{{email}}</ion-label>
+        </ion-col>
+        <ion-col>
+          <ion-label class="user-info__change" (click)="gotoChangeName()">Change</ion-label>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <ion-grid class="user-info__password">
+      <ion-row>
+        <ion-col>
+          <ion-label class="user-info__title">
+            Password
+          </ion-label>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-label class="user-info__content">••••••••••</ion-label>
+        </ion-col>
+        <ion-col>
+          <ion-label class="user-info__change" (click)="gotoPasswordChange()">Change</ion-label>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+  </ion-header>
+
+  <ion-button class="btn-logout" (click)="showAlert()">Log Out</ion-button>
+</ion-content>

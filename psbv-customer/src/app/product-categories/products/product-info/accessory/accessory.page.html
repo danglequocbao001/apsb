@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-buttons>
+    <ion-back-button text="" icon="chevron-back-outline"></ion-back-button>
+    <ion-label>Detail accessory</ion-label>
+  </ion-buttons>
+</ion-header>
+
+<ion-content>
+  <div class="cart-wrapper" (click)="goToCart()">
+    <img src="assets/detail-product/cart.svg" class="cart-btn">
+    <span>+{{ cartItems.length }}</span>
+  </div>
+  <span class="no-internet-popup" *ngIf="!isOnline">No internet connection</span>
+  <ion-img [src]="accessory.thumb_image.url" class="main-img" *ngIf="loadedAccessory"></ion-img>
+  <ion-card class="product-content">
+    <ion-backdrop *ngIf="!loadedAccessory"></ion-backdrop>
+    <ion-label class="product-name" style="margin-left: 16px; font-weight: bold;" >
+      
+      #{{accessory.code}}</ion-label>
+    <ion-buttons class="product-name-wrapper">
+      <ion-label class="product-name"[innerHTML]="accessory.name" ></ion-label>
+      <span class="product-price" *ngIf="!checkGuestPermission()">
+        <ion-label class="product__price-unit"  *ngIf="accessory.price !== 0">$</ion-label>
+        <ion-label  *ngIf="accessory.price === 0||accessory.price === null">Request for quotes</ion-label>
+        <ion-label  *ngIf="accessory.price !== 0" [innerHTML]="accessory.price | number: '1.2-2'" > </ion-label>
+        </span>
+    </ion-buttons>
+    <!-- <ion-label style="color: #424242; font-size: 15px; margin-left: 16px;">Info</ion-label> -->
+    <p class="product-desc" [innerHTML]="accessory.description "></p>
+  </ion-card>
+</ion-content>
+
+<ion-footer *ngIf="loadedAccessory">
+  <!-- <ion-button expand="block" (click)="openModalAdd()">Add to cart</ion-button> -->
+    <ion-button expand="block" *ngIf="accessory.price>0" (click)="openModalAdd()">Add to cart</ion-button>
+  <ion-button expand="block" *ngIf="accessory.price==0" (click)="linkContactUs()">Contact us</ion-button>
+  <p *ngIf="!checkGuestPermission()">We will show detail component of product after you receive the item!</p>
+</ion-footer>

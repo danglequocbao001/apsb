@@ -1,0 +1,119 @@
+ion-header{
+    background-color: #232323;
+    height: 117px;
+    ion-row {
+        ion-col {
+            ion-back-button {
+                color: #fff;
+                margin-top: -6px;
+            }
+        }
+    }
+    .noti-bell {
+        color: white;
+        font-size: 26px;
+        margin-left: -50px ;
+    }
+}
+.ion-heading{
+    margin-top: 6%;
+    color: white;
+    font-size: 20px;
+    font-weight: 700;
+    display: flex;
+    &__element__text{
+        margin-left: calc(50% - 22px);
+        transform: translateX(-50%);
+        width: 143px;
+    }
+    &__element__shop-icon{
+        width: 30px;
+        height: auto;
+        margin-top: -0.3rem;
+    }
+    &__element__back{
+        margin-left: 26px;
+        margin-top: -0.5rem;
+    }
+}
+ion-content {
+    position: absolute;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    top: 93px;
+    --background: #F6F6F6;
+    z-index: 11;
+    overflow: hidden;
+    border-bottom: 0;
+    --overflow: hidden;
+    --offset-top: 5px !important;
+   
+    .wrapper__noti {
+       
+        height: calc(100% - 100px);
+        overflow-y: scroll;
+       .item__new-noti {
+        height: 150px;
+        width: 100%;
+        margin-left: -14px;
+        margin: 0 auto;
+      
+        position: relative;
+       --background: #F6F6F6;
+       .item__wrapper {
+           height: 150px;
+           --background: #F6F6F6;
+           margin-left: -16px;
+           border-bottom: 3.7px solid #EFEFEF;
+       }
+       &--image {
+        height: 58px;
+        width: 58px;
+        border: 1px solid #F6F6F6;
+        border-radius: 13px;
+        margin-top: -14px;
+       }
+       &--cricle {
+        position: absolute;
+        width: 11px;
+        height: 11px;
+        top: -2px;
+        left: 22px;
+        border-radius: 50%;
+        background-color: #FF6E6E;
+
+       }
+       &--text {
+           margin-left: 7px;
+           color: #515151;
+           margin-top: 12px;
+       }
+       &--title {
+        font-size: 16px;
+        margin-bottom: 5px;
+       }
+       &--des {
+        font-size: 14px;
+
+       }
+       &--oclock {
+           margin-top: 4px;
+           font-size: 16px;
+       }
+       &--time {
+           color: #CECECE;
+           font-size: 12px;
+       }
+    }
+    }
+    
+}
+.wrapper__noti:first-child {
+    margin-top: 18px;
+}
+ion-item {
+    --min-height: 0;
+}
+ion-label {
+    width: 235px;
+}

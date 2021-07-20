@@ -1,0 +1,311 @@
+ion-header {
+  background: #232323;
+  padding-bottom: 30px;
+
+  ion-buttons {
+    position: relative;
+    height: 100px;
+
+    ion-back-button {
+      color: #fff;
+      position: absolute;
+      left: 8px;
+      top: 50%;
+      transform: translateY(-50%);
+      display: inline-block;
+    }
+
+    ion-label {
+      font-size: 20px;
+      color: #fff;
+      font-weight: 700;
+      margin: 0 auto;
+      text-transform: uppercase;
+      padding-left: 56px;
+      padding-right: 56px;
+    }
+  }
+}
+
+ion-content {
+  --background: #efefef;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  overflow: hidden;
+  z-index: 11;
+  position: absolute;
+  height: calc(100% - 90px);
+  bottom: 0;
+  --padding-bottom: 80px;
+}
+
+.status-list {
+  justify-content: space-around;
+  position: relative;
+  margin-bottom: 200px;
+  margin-top: 30px;
+  transition: 0.3s;
+
+  .status-item-wrapper {
+    text-align: center;
+    position: relative;
+
+    .status-item {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 13px;
+      position: relative;
+      transition: 0.2s;
+      width: 42px;
+      height: 42px;
+
+      .status-img {
+        width: 20px;
+        height: 20px;
+      }
+
+      .active-icon {
+        width: 30px;
+        height: 30px;
+      }
+
+      .status-info {
+        position: absolute;
+        flex-direction: column;
+        top: 84px;
+
+        .status-name {
+          color: #636363;
+          font-size: 14px;
+          font-weight: 700;
+          margin-bottom: 2px;
+        }
+
+        .status-sub-info {
+          flex-direction: column;
+          width: 200px;
+        }
+
+        .status-date-time {
+          color: #8f8f8f;
+          font-size: 12px;
+        }
+
+        .btn-toggle-shipping {
+          width: 20px;
+          height: 20px;
+          background: #f7bdae;
+          display: inline-flex;
+          justify-content: center;
+          align-items: center;
+          border-radius: 5px;
+          color: #fff;
+          position: relative;
+
+          ion-icon {
+            transition: 0.3s;
+            z-index: 200;
+          }
+
+          .active-btn-shipping {
+            transform: rotate(180deg);
+          }
+
+          .shipping-status-list {
+            flex-direction: column;
+            position: absolute;
+            top: 50%;
+            border: 2px solid #f7bdae;
+            border-radius: 22px;
+            padding: 15px 20px 12px;
+
+            .shipping-status-item {
+              justify-content: space-between;
+              width: 100%;
+              line-height: 18px;
+              max-width: 320px;
+              position: relative;
+            }
+          }
+        }
+      }
+    }
+
+    .active-item {
+      transform: translateY(-18px);
+      width: 62px;
+      height: 62px;
+    }
+
+    .circle-h {
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      background: #dededf;
+      border-radius: 50%;
+      top: 84px;
+      top: 50px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 10;
+    }
+
+    .active-circle {
+      background: #91e29b;
+    }
+  }
+
+  .line-h {
+    background: #dededf;
+    height: 2px;
+    position: absolute;
+    top: 55px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .line-h-top {
+    background: #91e29b;
+    height: 2px;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+}
+
+.cart-item {
+  --background: #fff;
+  position: relative;
+  overflow: visible;
+  margin: 5px 5px 10px;
+  padding: 15px 10px 0;
+  border-radius: 20px;
+
+  .item-header {
+    background: #f7f7f7;
+    border-radius: 20px;
+    padding: 9px;
+    margin-bottom: 5px;
+    position: relative;
+
+    .item-name {
+      color: #515151;
+      font-size: 16px;
+      font-weight: 700;
+      text-transform: none;
+      margin-left: 47px;
+      max-width: calc(100% - 50px);
+    }
+
+    .item-amount {
+      width: 42px;
+      height: 42px;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      color: #515151;
+      font-weight: 700;
+      border-radius: 50%;
+      border: 1px solid #dedede;
+      font-size: 20px;
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      background: #fff;
+    }
+  }
+
+  .item-price {
+    color: #d22321;
+    font-size: 18px;
+    font-weight: 700;
+    margin-right: 15px;
+  }
+}
+
+.re-order-btn {
+  --background: #ce091c;
+  font-size: 17px;
+  height: 40px;
+  text-transform: none;
+  --border-radius: 10px;
+  max-width: 333px;
+  min-width: 300px;
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  z-index: 100;
+  transform: translateX(-50%);
+}
+
+.delivery-icon {
+  margin-left: 10px;
+  margin-right: 5px;
+}
+
+.delivery-day {
+  font-size: 14px;
+  color: #333333;
+}
+
+.line-v {
+  background: #dededf;
+  width: 2px;
+  height: 300%;
+  position: absolute;
+  left: -10px;
+  top: 50%;
+}
+
+.line-v-top {
+  background: #91e29b;
+  width: 2px;
+  height: 20px;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.circle-v {
+  background: #dededf;
+  width: 8px;
+  height: 8px;
+  position: absolute;
+  top: 50%;
+  left: -13.5px;
+  border-radius: 50%;
+  transform: translateY(-3px);
+}
+
+.order-code {
+  color: #515151;
+  font-size: 20px;
+  font-weight: 700;
+  text-align: center;
+  display: block;
+  margin: 38px 0 10px;
+}
+
+.order-id {
+  color: #636363;
+  font-size: 15px;
+  text-align: center;
+  display: block;
+  margin-bottom: 20px;
+}
+
+.no-internet-popup {
+  z-index: 110;
+  background: yellow;
+  display: block;
+  position: fixed;
+  left: 0;
+  right: 0;
+  text-align: center;
+  top: 89px;
+  line-height: 30px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}

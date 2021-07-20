@@ -1,0 +1,103 @@
+
+.header__wrapper {
+    display: block;
+    text-align: center;
+    margin-bottom: 110px;
+    justify-content: center;
+    .header__icon {
+        margin-top: 168px;
+        width: 82px;
+        height: 82px;
+        color: white;
+        margin-bottom: 32px;
+        margin-left: auto;
+        margin-right: auto;
+        background-color: #42b245;
+        position: relative;
+        .icon-check {
+            font-size: 82px;
+            position: absolute;
+            left: 3px;
+            top: 3px;
+        }
+    }
+    .header__label {
+        font-weight: bold;
+        font-size: 22px;
+    }
+}
+.question {
+    font-size: 13px;
+    color: #27233c;
+}
+.header-md::after {
+    background-image: none;
+}
+.question__wrapper {
+    display: block;
+    text-align: center;
+    justify-content: center;
+}
+.forgot-password {
+   float: right;
+   font-size: 13px;
+   color: var(--title-color);
+   margin-top: 22px;
+   margin-bottom: 44px;
+ }
+.btn-signin {
+   width: 100%;
+   --background-color: var(--main-color);
+   border-radius: 4px;
+   --background: var(--main-color);
+   color: white;
+   margin-top: 58px;
+   height: 40px;
+   margin-inline-start: 0;
+   margin-inline-end: 0;
+ }
+.header__label {
+    font-weight: bold;
+    font-size: 22px;
+}
+// Res
+@media screen and (max-width: 320px) {
+    .header__wrapper {
+        .header__label {
+            font-size: 19px;
+        }
+        margin-bottom: 87px;
+        .header__icon {
+            .icon-check {
+                font-size: 61px;
+            }
+            margin-top: 63px;
+            width: 62px;
+            height: 62px;
+        }
+    }
+    ion-header {
+        height: 60px;
+    }
+    .icon-key {
+        left: 143px;
+    }
+    .content__wrapper {
+        margin-top: 80px;
+        .content__btn-change {
+            margin-top: 100px;
+        }
+        .content__wrapper-input{
+         .content__input {
+             height: 32px;
+         }
+         .ion-lock {
+             margin: 9px 6px 8px 8px;
+         }
+         .ion-eye {
+             margin: 9px 6px 8px 8px;
+         }
+        }
+    }
+   
+ }

@@ -1,0 +1,37 @@
+<ion-header class="ion-padding" (click)="setFalse()">
+  <ion-icon name="chevron-back-outline" class="icon-back" routerLink="/account/user-info">
+  </ion-icon>
+</ion-header>
+<ion-content>
+  <ion-avatar class="header__icon">
+
+    <ion-img class="icon-premium" src="assets/standard.svg"></ion-img>
+
+    <ion-icon name="person" class="header__iperson"></ion-icon>
+  </ion-avatar>
+
+  <ion-grid>
+    <ion-row class="user-name">
+      <ion-label class="user-name__main">{{email}}</ion-label>
+      <ion-label class="user-name__sub">{{role}}</ion-label>
+    </ion-row>
+  </ion-grid>
+
+  <ion-label class="policy-title">Policy for upgrade PREMIUM account</ion-label>
+  <ion-label class="policy-detail">
+    There are many variations of passages of Lorem
+    There are many variations of passages of Lorem
+    There are many variations of passages of Lorem
+    There are many variations of passages of Lorem
+    There are many variations of passages of Lorem
+    There are many variations of passages of Lorem
+    There are many variations of passages of Lorem
+    There are many variations of passages of Lorem
+    There are many variations of passages of Lorem
+    There are many variations of passages of Lorem
+  </ion-label>
+  <form  #upgrade="ngForm" (ngSubmit)="onSubmit(upgrade)">
+    <ion-button class="btn-logout" type="submit">Sent mail request upgrade</ion-button>
+
+  </form>
+</ion-content>

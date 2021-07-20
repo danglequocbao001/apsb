@@ -1,0 +1,107 @@
+:host {
+    --inner-padding-end: 0;
+}
+.item .sc-ion-label-ios-h {
+    overflow: inherit;
+}
+ion-header {
+    background: white;
+    padding-bottom: 60px;
+  
+    ion-buttons {
+      position: relative;
+      margin-top: 20px;
+  
+      ion-back-button {
+        color: #232323;
+        position: absolute;
+        left: 0;
+      }
+  
+      ion-label {
+        font-size: 20px;
+        color: #232323;
+        font-weight: 700;
+        margin: 0 auto;
+        padding-left: 35px;
+        padding-right: 35px;
+        text-transform: uppercase;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+        text-align: center;
+  
+        @media screen and (max-width: 360px) {
+          font-size: 17px;
+        }
+      }
+    }
+  
+    ion-item-group {
+      position: absolute;
+      top: 11px;
+      right: 12px;
+  
+      ion-icon {
+        color: var(--main-color);
+        font-size: 21px;
+        margin: 0 7px;
+      }
+    }
+  }
+  ion-content {
+      --over-flow: hidden;
+      .supplier__des-group {
+            margin-bottom: 30px;
+      }
+      .supplier__des-group {
+          display: flex;
+          height: 110px;
+          .supplier__image {
+            border-top-left-radius: 27px;
+            border-bottom-left-radius: 27px;
+            width: 170px; 
+            background-color: var(--main-color);
+         }
+         .supplier__des {
+             color: #fff;
+            display: block;
+            padding-left: 13px;
+            border-top-right-radius: 27px;
+            border-bottom-right-radius: 27px;
+            background-color: var(--main-color);
+            .supplier__name {
+                font-size: 13px;
+                margin-top: 11px;
+                display: block;
+                margin-bottom: 3px;
+            }
+            .supplier_info {
+                font-size: 12px;
+                display: block;
+                font-weight: 300;
+                padding-right: 14px;
+                overflow: hidden;
+                display: -webkit-box;
+                -webkit-line-clamp: 5;
+                -webkit-box-orient: vertical;
+            }
+         }
+          ion-item-divider {
+            --padding-start: 0;
+            --inner-padding-end: 0;
+            --padding-end: 0;
+           
+            .supplier__img {
+                height: 100%;
+                width: 100%;
+                background-size: cover;
+                border-radius: 26px;
+                // border: 1px solid rgb(238, 234, 234);
+            }
+
+          }
+
+      }
+  }

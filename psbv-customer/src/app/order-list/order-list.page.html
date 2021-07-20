@@ -1,0 +1,90 @@
+<ion-header [ngClass]="{'active-bg': activeTab === 'orderHistory'}">
+    <ion-row no-lines>
+        <ion-col class="heading">
+            ORDER LIST
+        </ion-col>
+    </ion-row>
+    <ion-segment>
+        <button (click)="changeTabs('orderStatus')" [ngClass]="{'active-btn':activeTab === 'orderStatus'}"
+            class="button-segment" value="orderStatus">
+            <ion-label>Order status</ion-label>
+        </button>
+        <button (click)="changeTabs('orderHistory')" [ngClass]="{'active-btn':activeTab === 'orderHistory'}"
+            class="button-segment" value="orderHistory">
+            <ion-label>History</ion-label>
+        </button>
+    </ion-segment>
+</ion-header>
+
+<ion-content [style.--padding-top.px]="!isOnline ? 32 : 0">
+    <span class="no-internet-popup" *ngIf="!isOnline">No internet connection</span>
+
+    <ion-item-group [style.display]="activeTab == 'orderStatus' ? 'block' : 'none'">
+        <!-- <ion-backdrop *ngIf="data.length == 0 && isLoading"></ion-backdrop> -->
+        <p class="absolute-center absolute-center-text" *ngIf="data.length == 0 && loadedData">Not found orders.</p>
+
+        <ion-card class="order-item" *ngFor="let item of data" (click)="goToOrderDetail(item)">
+            <ion-label class="item-code">{{ item.code }}</ion-label>
+            <ion-buttons class="item-header">
+                <ion-buttons class="item-header-left">
+                    <span class="group__price">
+                        <ion-label class="product__name-price--unit">$</ion-label>
+                        {{ calTotalPrice(item) | number: '1.2-2' }}</span>
+                    <span class="separation"></span>
+                    <span>{{ calProductsAmount(item) }} products <br> {{ calAccessoriesAmount(item) }}
+                        accessories</span>
+                </ion-buttons>
+                <ion-buttons class="item-header-right">
+                    <span>{{ item.status | titlecase }}</span>
+                    <span class="circle" [style.background]="getStatusColor(item)"></span>
+                </ion-buttons>
+            </ion-buttons>
+            <p class="items-name">{{ listProductsName(item) }}</p>
+            <ion-buttons class="ion-justify-content-between">
+                <ion-buttons>
+                    <img src="assets/shopping-cart/deliver-black.svg" class="delivery-icon">
+                    <span class="delivery-day">1 day</span>
+                </ion-buttons>
+                <img src="assets/order-status/two-lines.svg">
+
+                <!-- <ion-button class="btn" (click)="gotoOrderStatus(item)">Status</ion-button>
+                <ion-button class="btn" (click)="gotoDetailOrder(item)">Detail</ion-button> -->
+            </ion-buttons>
+        </ion-card>
+        <ion-infinite-scroll #infinityScroll *ngIf="data.length != 0 && !loadedData" (ionInfinite)="loadMoreData($event)">
+            <ion-infinite-scroll-content loadingSpinner="bubbles"></ion-infinite-scroll-content>
+        </ion-infinite-scroll>
+    </ion-item-group>
+
+    <ion-item-group [style.display]="activeTab == 'orderHistory' ? 'block' : 'none'">
+        <!-- <ion-backdrop *ngIf="dataHistory.length == 0 && isLoadingHistory"></ion-backdrop> -->
+        <!-- <ion-backdrop class="a" *ngIf="dataHistory.length == 0"></ion-backdrop> -->
+        <p class="absolute-center absolute-center-text" *ngIf="dataHistory.length == 0 && loadedDataHistory">Not found orders.</p>
+        <!-- <ion-spinner class="absolute-center" *ngIf="isLoadingHistory && dataHistory.length == 0"></ion-spinner> -->
+
+        <ion-card class="order-item" *ngFor="let item of dataHistory" (click)="goToOrderDetailHistory(item)">
+            <ion-label class="item-code">{{ item.code }}</ion-label>
+            <ion-buttons class="item-header">
+                <ion-buttons class="item-header-left">
+                    <span><ion-label class="product__name-price--unit">$</ion-label>{{ calTotalPrice(item) | number: '1.2-2' }}</span>
+                    <span class="separation"></span>
+                    <span>{{ calProductsAmount(item) }} products <br> {{ calAccessoriesAmount(item) }}
+                        accessories</span>
+                </ion-buttons>
+                <ion-buttons class="item-header-right">
+                    <span>{{ item.status | titlecase }}</span>
+                    <span class="circle" [style.background]="getStatusColor(item)"></span>
+                </ion-buttons>
+            </ion-buttons>
+            <p class="items-name">{{ listProductsName(item) }}</p>
+            <ion-buttons class="ion-justify-content-end">
+                <img src="assets/order-status/two-lines.svg">
+            </ion-buttons>
+            <!-- <ion-button class="btn-re-order">Re-order</ion-button> -->
+        </ion-card>
+        <ion-infinite-scroll *ngIf="dataHistory.length != 0 && !loadedDataHistory"  #infinityScrollHistory
+            (ionInfinite)="loadMoreDataHistory($event)">
+            <ion-infinite-scroll-content loadingSpinner="bubbles"></ion-infinite-scroll-content>
+        </ion-infinite-scroll>
+    </ion-item-group>
+</ion-content>

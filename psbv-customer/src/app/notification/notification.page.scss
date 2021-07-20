@@ -1,0 +1,184 @@
+ion-header{
+    background-color: #232323;
+    height: 117px;
+    ion-row {
+        ion-col {
+            ion-back-button {
+                color: #fff;
+                margin-top: -6px;
+            }
+        }
+    }
+    .noti-bell {
+        color: white;
+        margin-left: -50px;
+        font-size: 26px;
+    }
+}
+.ion-heading{
+    margin-top: 6%;
+    color: white;
+    font-size: 20px;
+    font-weight: 700;
+    display: flex;
+    &__element__text{
+        margin-left: calc(50% - 22px);
+        transform: translateX(-50%);
+        clear: both;
+        display: inline-block;
+        overflow: hidden;
+        white-space: nowrap;
+        @media screen and (max-width: 320px){
+            margin-left: calc(50% - 38px);
+            transform: translateX(-50%);
+        }
+    }
+    &__element__shop-icon{
+        width: 30px;
+        height: auto;
+        margin-top: -0.3rem;
+    }
+    &__element__back{
+        margin-left: 26px;
+        margin-top: -0.5rem;
+    }
+}
+ion-content {
+    position: absolute;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    // top: 93px;
+    bottom: 0;
+    height: calc(100% - 90px);
+    --background: #EFEFEF;
+    z-index: 11;
+    overflow: hidden;
+    border-bottom: 0;
+    // --overflow: hidden;
+    --offset-top: 5px !important;
+    .item__promotion{
+        background-color: white;
+        --min-height: 84px;
+        margin: 10px 10px 10px 12px;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        --padding-start: 0;
+
+        &-icon {
+            padding: 6px 7px;
+            color: var(--main-color);
+            border-radius: 50%;
+            border: 1px solid #ccc;
+            margin-right: 9px;
+            margin-left: 10px;
+
+            &--delivery {
+                padding: 11.5px 9px;
+            }
+            &--highlight {
+                padding: 8.5px 9.5px;
+            }
+        }
+       &-title {
+        font-weight: bold;
+       }
+        &-text {
+            margin-right: 35px;
+            color: #636363;
+            font-size: 16px;
+
+            &--des{
+                font-size: 14px;
+            }
+        }
+        &-amount {
+            font-size: 12px;
+            padding: 7px 4px;
+            border-radius: 50%;
+            background-color: var(--main-color);
+            color: white;
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            transform: translateY(-50%);
+        }
+        &-highlight {
+            background: transparent;
+            color: var(--main-color);
+            outline: none;
+        }
+    }
+    .wrapper__noti {
+        margin: -5px 10px 10px 12px;
+       .item__new-noti {
+        height: 150px;
+        margin: 4px auto 0px;
+        position: relative;
+       --background: #F6F6F6;
+       --border-radius: 7px;
+       .item__wrapper {
+           height: 150px;
+           --background: #F6F6F6;
+           margin-left: -16px;
+       }
+       &--image {
+        height: 54px;
+        width: 54px;
+        border: 1px solid #F6F6F6;
+        border-radius: 13px;
+        margin-top: -14px;
+       }
+       &--cricle {
+        position: absolute;
+        width: 11px;
+        height: 11px;
+        top: -2px;
+        left: 22px;
+        border-radius: 50%;
+        background-color: #FF6E6E;
+
+        
+       @media screen and (max-width: 320px) {
+           top: 7px;
+        }
+       }
+       &--text {
+           margin-left: 7px;
+           color: #515151;
+           margin-top: 12px;
+       }
+       &--title {
+        font-size: 16px;
+       }
+       &--des {
+        font-size: 14px;
+
+       }
+       &--oclock {
+           margin-top: 4px;
+           font-size: 16px;
+           transform: translateY(3px);
+       }
+       &--time {
+           color: #CECECE;
+           font-size: 12px;
+       }
+    }
+    }
+    
+}
+ion-item {
+    --min-height: 0;
+}
+
+.notifications {
+    position: relative;
+
+    &--active {
+        --background: #F6F6F6;
+        border-bottom-right-radius: 0px !important;
+        border-bottom-left-radius: 0 !important;
+    }
+}
+

@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-buttons>
+    <ion-back-button text="" icon="chevron-back-outline"></ion-back-button>
+    <ion-label>Detail product</ion-label>
+  </ion-buttons>
+</ion-header>
+<div class="cart-wrapper" (click)="goToCart()">
+  <img src="assets/detail-product/cart.svg" class="cart-btn">
+  <span>+{{ cartItems.length }}</span>
+</div>
+<ion-content>
+  <span class="no-internet-popup" *ngIf="!isOnline">No internet connection</span>
+  <ion-img [src]="product.thumb_image.url" class="main-img" *ngIf="loadedProduct"></ion-img>
+  <ion-card class="product-content ion-padding" >
+    <ion-backdrop *ngIf="!loadedProduct"></ion-backdrop>
+    <ion-label class="" style="font-weight: 700;">#{{product.code}}</ion-label>
+    <ion-buttons class="product-name-wrapper">
+      <ion-label class="product-name"[innerHTML]="product.name"></ion-label>
+      <span class="product-price" *ngIf="!checkGuestPermission()">
+        <ion-label class="product__price-unit"  *ngIf="product.price !== 0">$</ion-label>
+        <ion-label  *ngIf="product.price === 0 || product.price === null">Request for quotes</ion-label>
+        <ion-label  *ngIf="product.price !== 0" [innerHTML]="product.price | number: '1.2-2'"> </ion-label>
+      </span>
+    </ion-buttons>
+    <p class="product-desc"[innerHTML]="product.description"></p>
+    <span *ngIf="checkPremiumPermission()" class="technical"  style="font-weight: bold">
+      Catalogues <br>
+    <p (click) ="downloadTechnical()" class="link">Download</p>
+      <ion-img (click) ="downloadTechnical()" class="download-icon" src="assets/detail-product/download.svg" style="margin-left:10px"></ion-img>
+    </span>
+  </ion-card>
+</ion-content>
+
+<ion-footer *ngIf="loadedProduct">
+  <ion-button expand="block" (click)="openModalAdd()">Add to cart</ion-button>
+  <!-- <ion-button expand="block" *ngIf="product.price>0" (click)="openModalAdd()">Add to cart</ion-button> -->
+  <!-- <ion-button expand="block" *ngIf="product.price==0" (click)="linkContactUs()">Contact us</ion-button> -->
+  <p *ngIf="!checkGuestPermission()">We will show detail component of product after you receive the item!</p>
+</ion-footer>

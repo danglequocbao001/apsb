@@ -1,0 +1,84 @@
+/* Core CSS required for Ionic components to work properly */
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import "~@ionic/angular/css/display.css";
+
+/* Optional CSS utils that can be commented out */
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+:root {
+  --main-color: #ce091c;
+  --title-color: #1c1939;
+  --color-input: #f7f7f7;
+}
+.btn-main {
+  width: 100%;
+  border-radius: 4px;
+  --background: var(--main-color);
+  color: white;
+  margin-bottom: 44px;
+  height: 40px;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
+  --background-activated: var(--main-color);
+}
+.icon-header {
+  color: white;
+  font-size: 20px;
+}
+.icon-header + .icon-header {
+  margin-left: 12px;
+}
+.three-dot {
+  display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+.modal-add-detail-product {
+  .modal-wrapper {
+    height: 170px;
+    width: calc(100% - 16px);
+    position: absolute;
+    bottom: 8px;
+    background: transparent;
+    --backdrop-opacity: 0;
+    border-radius: 15px;
+    box-shadow: 0 1px 4px 1px rgba(0, 0, 0, 0.4);
+  }
+
+  ion-backdrop {
+    background: transparent;
+  }
+}
+.product-name-wrapper {
+  .product__price-unit {
+    display: inline-flex;
+    margin-right: 4px;
+  }
+}
+.total-group {
+  .product__price-unit {
+    display: inline-flex;
+    margin-right: 0px;
+  }
+}
+.item-price {
+  .product__price-unit {
+    display: inline-flex;
+    margin-right: 4px;
+  }
+}
+.displayBlock {
+  .product__price-unit {
+    display: inline-flex;
+    margin-right: 4px;
+  }
+}

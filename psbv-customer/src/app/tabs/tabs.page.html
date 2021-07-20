@@ -1,0 +1,24 @@
+<ion-tabs>
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button tab="product-categories">
+      <ion-icon name="home-outline"></ion-icon>
+      <ion-label>Categories</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="home">
+      <ion-icon name="file-tray-outline"></ion-icon>
+      <ion-label>Recommend</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="shopping-cart" (click)="gotoShoppingCart()">
+      <ion-icon name="cart-outline"></ion-icon>
+      <ion-label>Cart</ion-label>
+    </ion-tab-button>
+    
+    <ion-tab-button tab="order-list">
+      <ion-icon name="list-outline"></ion-icon>
+      <ion-label>Order</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+
+</ion-tabs>

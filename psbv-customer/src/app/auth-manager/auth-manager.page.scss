@@ -1,0 +1,129 @@
+.container{
+    background-color: #ce091c !important;
+    height: 100%;
+    $width: 80px;
+    $height: 80px;
+    text-align: center;
+    .logo{
+        margin-top: 116px;
+
+        .sub-title-box {
+          display: inline-block;
+          color: #ffffff;
+          text-align: left;
+          margin: 0 auto;
+
+          span {
+            font-size: 15px;
+          }
+        }
+
+        .title {
+          color: #ffffff;
+          font-size: 22px;
+        }
+
+        h1{
+            text-align: center;
+            font-size: 75px;
+            color: #ffffff;
+            margin: 0 0 115px 0;
+            line-height: 1;
+        }
+    }
+html, body {
+  background-color: #000;
+  height: 100%;
+}
+
+.center {
+  padding-bottom: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 60%;
+  width: 100%;
+}
+
+.icon-play {
+  width: 0;
+  height: 0;
+  border-top: 15px solid transparent;
+  border-left: 22px solid #fff;
+  border-bottom: 15px solid transparent;
+  margin-left: 8px;
+  transition: all 0.25s ease;
+}
+
+.video-play-btn {
+  width: $width;
+  height: $height;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.25s ease;
+
+  &:hover {
+    border-color: #fff;
+
+    &:before,
+    &:after {
+      border-color: #fff;
+      background-color: #fff;
+      animation-duration: 2s;
+    }
+
+    .icon-play {
+      border-left-color: #fff;
+    }
+  }
+
+  &:before {
+    content: "";
+    width: $width * 0.75;
+    height: $height * 0.75;
+    border: 1px solid #fff;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    animation: 2s pulse infinite;
+    pointer-events: none;
+  }
+
+  &:after {
+    content: "";
+    width: $width * 0.75;
+    height: $height * 0.75;
+    border: 1px solid #fff;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    animation: 2s pulse infinite;
+    animation-delay: 0.5s;
+    pointer-events: none;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    width: $width;
+    height: $height;
+    opacity: 0.6;
+    background: rgba(#fff, 0.2);
+  }
+
+  100% {
+    width: $width * 2;
+    height: $height * 2;
+    opacity: 0;
+  }
+}
+}

@@ -1,0 +1,35 @@
+<ion-header class="ion-padding">
+  <ion-row no-lines>
+      <ion-col class="ion-heading">
+        <ion-back-button text="" icon="chevron-back-outline" defaultHref="/notification"></ion-back-button>
+          <ion-label class="ion-heading__element__text">TRACKING</ion-label>
+          <!-- <ion-icon name="notifications-outline" class="noti-bell"></ion-icon> -->
+      </ion-col>
+    
+  </ion-row>
+</ion-header>
+<ion-content scroll="false">
+ 
+<ion-item-group class ="wrapper__noti" >
+      <ion-item class="item__new-noti" lines="none" *ngFor="let item of Details">
+        <ion-item class="item__wrapper" lines="none">
+            <ion-label class="item__new-noti--cricle" *ngIf="item.check == false"></ion-label>
+            <img [src]="item.src" class="item__new-noti--image" lines="none">
+            <span class="item__new-noti--text">
+              <ion-label class="item__new-noti--title">{{item.title}}</ion-label>
+              <span class="item__new-noti--des">{{item.des}}</span>
+              <ion-label class="item__new-noti--time">
+                  <ion-icon name="time-outline" class="item__new-noti--oclock"></ion-icon>
+                  {{item.day}}
+                </ion-label>
+          </span>        
+        </ion-item>
+      </ion-item>
+     
+</ion-item-group>
+   
+
+
+
+</ion-content>  
+

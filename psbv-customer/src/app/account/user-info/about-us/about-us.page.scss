@@ -1,0 +1,81 @@
+ion-header {
+  ion-buttons {
+    position: relative;
+    height: 100px;
+    background: #fff;
+
+    ion-back-button {
+      color: #232323;
+      position: absolute;
+      left: 8px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    ion-label {
+      font-size: 20px;
+      color: #232323;
+      font-weight: 700;
+      margin: 0 auto;
+      padding-left: 56px;
+      padding-right: 56px;
+    }
+  }
+}
+
+ion-content {
+  --overflow: hidden;
+  .content__wrapper {
+    display: block;
+
+    .content__label-input {
+        color: #a8afbc;
+        font-size: 12px;
+        margin-bottom: 10px;
+        outline: none;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    .content__input {
+        font-family: 'Open Sans', sans-serif;
+        height: 42px;
+        color: #a8afbc;
+        border: 0;
+        padding: 0 6px;
+        width: 100%;
+        display: flex;
+        background-color: #F7F7F7 ; 
+        border-radius: 11px;
+        &:focus {
+            outline: none;
+            background-color: white;
+            border: 1px solid #5E656F;
+        }
+    }
+    .input-question {
+      padding: 10px;
+      height: 155px;
+      @media screen  and (max-width: 360px){
+        height: 85px;
+      }
+    }
+    .content__btn-change {
+        width: 100%;
+        --background-color: #c90a1b;
+        border-radius: 4px;
+        --background: #c90a1b;
+        color: white;
+        margin-top: 72px;
+        margin-bottom: 18px;
+        height: 42px;
+        margin-inline-start: 0;
+        margin-inline-end: 0;
+    }
+    .content__btn-change.content__btn-cancel {
+        --background-color: white;
+        margin-top: 0px;
+        --background: white;
+        color: #aeb2b5;
+    }
+   
+}
+}

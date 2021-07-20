@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-buttons>
+    <ion-back-button text="" icon="chevron-back-outline"></ion-back-button>
+    <ion-label>Your order</ion-label>
+  </ion-buttons>
+</ion-header>
+
+<ion-content [style.--padding-top.px]="!isOnline ? 32 : 0">
+  <span class="no-internet-popup" *ngIf="!isOnline">No internet connection</span>
+  <ion-card class="cart-item" *ngFor="let item of items; let i = index;">
+    <ion-buttons class="item-header">
+      <span class="item-amount">{{ item.amount }}</span>
+      <ion-label class="item-name">{{ item.name }}</ion-label>
+    </ion-buttons>
+    <ion-buttons>
+      <p class="item-price" *ngIf="item.price != 0">
+        <ion-label class="product__price--unit">$</ion-label>
+        {{ item.price * item.amount | number: '1.2-2' }}
+      </p>
+      <p class="item-price" *ngIf="item.price == 0">RFQ
+      </p>
+      <ion-img src="assets/shopping-cart/deliver-black.svg" class="delivery-icon"></ion-img>
+      <span class="delivery-day">1 day</span>
+    </ion-buttons>
+  </ion-card>
+</ion-content>
+
+<ion-footer>
+  <p class="email">Your email: {{email}}</p>
+  <ion-buttons class="ion-justify-content-between">
+    <ion-item-group class="total-product-group">
+      <ion-buttons>
+        <span class="total-product-label">Total: </span>
+        <span class="total-price">
+            <ion-label class="product__price-unit">$</ion-label>
+            {{ calTotalPrice() | number: '1.2-2' }}
+      </span>
+      </ion-buttons>
+      <span class="total-product">{{ calTotalProducts() }} products</span>
+      <span class="total-accessories">{{ calTotalAccessories() }} accessories</span>
+    </ion-item-group>
+    <ion-item-group>
+      <ion-buttons class="ion-justify-content-center">
+        <ion-img src="assets/shopping-cart/deliver-black.svg" class="delivery-icon"></ion-img>
+        <span class="delivery-day">1 day</span>
+      </ion-buttons>
+      <ion-button class="btn-send" [disabled]="!isOnline" (click)="sendMailQuote()">
+        Send a quote
+      </ion-button>
+    </ion-item-group>
+  </ion-buttons>
+</ion-footer>

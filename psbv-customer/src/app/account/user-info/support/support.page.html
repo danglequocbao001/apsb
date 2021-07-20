@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-label>Support Policy page</ion-label>
+    <ion-icon slot="start" name="chevron-back-outline" (click)="goBack()"></ion-icon>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item-group *ngFor="let item of data">
+      <ion-item lines="none" (click)="toggleDescription(item)">
+        <ion-label>{{ item.name }}</ion-label>
+        <ion-icon name="chevron-forward-outline" [style.transform]="item.isOpen ? 'rotate(90deg)' : 'rotate(0)'"></ion-icon>
+      </ion-item>
+      <p *ngIf="item.isOpen">{{ item.description }}</p>
+    </ion-item-group>
+  </ion-list>
+</ion-content>
